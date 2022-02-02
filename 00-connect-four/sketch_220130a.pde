@@ -22,7 +22,7 @@ void setup() {
 }
 
 void keyPressed() {
-  if(keyCode != 10) {
+  if(keyCode != 10) { //remove for auto color switch
     Pattern pattern = Pattern.compile("[1-7]", Pattern.CASE_INSENSITIVE); //regex. dont need to go through multiple if statements
     Matcher match = pattern.matcher(Character.toString(key));
     boolean isMatch = match.find();
@@ -94,9 +94,39 @@ void inputHandler(String[][] bd, String cp) {
   for(int row = bd.length-1; row > -1; row--) {
     if(bd[row][column-1].equals(" ")) {
       bd[row][column-1] = cp;
+      checkwinner(bd);
       noLoop();
       break;
     }
     //formatBoard();
+  }
+}
+void checkwinner(String[][] bd) {
+  for(int row = 0; row < bd.length; row++) {
+    for(int col = 0; col < bd[row].length; col++) {
+      String element = bd[row][col];
+      if(element.equals(currentPiece)) {
+        if(col <= bd[row].length-4 && element.equals(bd[row][col+1]) && element.equals(bd[row][col+2]) && element.equals(bd[row][col+3])) {
+          println(currentPiece+" win horizontal");
+        }
+        if(row <= bd.length-4 && element.equals(bd[row+1][col]) && element.equals(bd[row+2][col]) && element.equals(bd[row+3][col])) {
+          println(currentPiece+" win vertical");
+        }
+        for(int i = 3; i < bd.length; i++) {//set row bounds
+          for(int j = 0; j < bd[row].length-3; j++){ //set col bounds
+            if(bd[i][j].equals(currentPiece) && bd[i-1][j+1].equals(currentPiece) && bd[i-2][j+2].equals(currentPiece) && bd[i-3][j+3].equals(currentPiece) ) {
+              System.out.println(currentPiece+" diagonal win");
+            }
+          }
+        }
+        for(int i = 3; i < bd.length; i++) {
+          for(int j = 3; j < bd[row].length-3; j++) {
+            if(bd[i][j].equals(currentPiece) && bd[i-1][j-1].equals(currentPiece) && bd[i-2][j-2].equals(currentPiece) && bd[i-3][j-3].equals(currentPiece) ) {
+              println(currentPiece+" diagonal win");
+            }
+          }
+        }
+      }
+    }
   }
 }
