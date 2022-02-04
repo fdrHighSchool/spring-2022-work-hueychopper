@@ -2,9 +2,9 @@
 ## spring-2022-work
 
 
-### Last Name:  
-### First Name: 
-### GitHub Username: 
+### Last Name:  Angelov
+### First Name: Samuel
+### GitHub Username: hueychopper
 
 ---
 #### General Workflow: 
