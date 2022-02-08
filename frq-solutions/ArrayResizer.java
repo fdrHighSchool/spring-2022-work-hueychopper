@@ -26,8 +26,7 @@ public class ArrayResizer {
         return count;
     }
     public static int[][] resize(int[][] arr) {
-        int[][] smaller = new int[numNonZeroRows(arr)][arr[0].length]; //2 is row number because the original problem had a method which return 2 as the answer. the method would've gone in the place of 2.
-        int ix = 0;
+        int[][] smaller = new int[numNonZeroRows(arr)][arr[0].length]; 
         for(int i = 0; i < arr.length; i++) {
             if(isNonZeroRow(arr,i)) {
                 smaller[ix] = arr[i];
