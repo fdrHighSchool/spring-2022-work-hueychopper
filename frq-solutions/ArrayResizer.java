@@ -27,6 +27,7 @@ public class ArrayResizer {
     }
     public static int[][] resize(int[][] arr) {
         int[][] smaller = new int[numNonZeroRows(arr)][arr[0].length]; 
+        int ix = 0;
         for(int i = 0; i < arr.length; i++) {
             if(isNonZeroRow(arr,i)) {
                 smaller[ix] = arr[i];
