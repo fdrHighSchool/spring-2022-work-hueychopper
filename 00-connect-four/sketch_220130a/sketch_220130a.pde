@@ -42,10 +42,10 @@ void keyPressed() {
       checkCol = "";
     }
   } else if(gameState.equals("gameover")) {
-    println("from keypress: gameover");
-    //if(keyPressed) {
-    //  keyPressed = false;
-    //} 
+    //println("from keypress: gameover");
+    if(keyPressed) {
+      keyPressed = false;
+    } 
   }
 }
 void draw() {
