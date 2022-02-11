@@ -36,4 +36,11 @@ public class Store {
             }
         }
     }
+    public double getAverage() {
+        int total = 0;
+        for(int grade : grades) {
+            total += grade;
+        }
+        return total / grades.length;
+    }
 }

@@ -8,5 +8,7 @@ class Front {
         Store p3 = new Store(1357911, "Jamal Jenkins", false, g3);
         Store p4 = new Store(2468101, "Ramiz Ahmad", true, g4);
         Store p5 = new Store(1928374, "Michael Green", true, g5);
+
+        System.out.println(p1.getAverage());
     }
 }
