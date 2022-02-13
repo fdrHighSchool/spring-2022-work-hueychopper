@@ -7,10 +7,10 @@ public class Store {
     private boolean closeContact;
     private int[] grades = new int[5];
 
-    public Store(int uid, String uname, boolean cc, int[] sGrades) {//
+    public Store(int uid, String uname, int[] sGrades, boolean... cc) {//
         this.id = uid;
         this.name = uname;
-        this.closeContact = cc;
+        this.closeContact = cc.length > 0 ? cc[0] : false; 
         for(int i = 0; i < sGrades.length; i++) {
             grades[i] = sGrades[i];
         }
@@ -42,5 +42,15 @@ public class Store {
             total += grade;
         }
         return total / grades.length;
+    }
+
+    public void setCloseContact(boolean value) {
+        this.closeContact = value;
+    }
+    public boolean isFailing() {
+        if(this.getAverage() < 65.0) {
+            return true;
+        }
+        return false;
     }
 }
