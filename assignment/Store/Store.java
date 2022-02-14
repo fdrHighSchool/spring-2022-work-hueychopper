@@ -11,6 +11,7 @@ public class Store {
         this.id = uid;
         this.name = uname;
         this.closeContact = cc.length > 0 ? cc[0] : false; 
+        
         for(int i = 0; i < sGrades.length; i++) {
             grades[i] = sGrades[i];
         }
