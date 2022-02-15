@@ -11,12 +11,10 @@ public class Store {
         this.id = uid;
         this.name = uname;
         this.closeContact = cc.length > 0 ? cc[0] : false; 
-        
         for(int i = 0; i < sGrades.length; i++) {
             grades[i] = sGrades[i];
         }
         filterCC(true);
-        // System.out.println("filter set to true.");
     }
     public void getId() {
         System.out.println(this.id);
@@ -53,5 +51,8 @@ public class Store {
             return true;
         }
         return false;
+    }
+    public String toString() {
+        return this.name+": "+this.id;
     }
 }

@@ -10,8 +10,12 @@ class Front {
         Store p5 = new Store(1928374, "Michael Green", g5,true);
 
         // System.out.println(p1.getAverage());
+        System.out.println("----------------------------------------------------");
         Store p6 = new Store(89,"Bob",new int[] {99,99,99,99,99});
-        System.out.println(p6.getAverage());
-        System.out.println(p6.isFailing());
+        // System.out.println(p6.getAverage());
+        // System.out.println(p6.isFailing());
+        p6.getName();
+        p6.setCloseContact(true);
+        p6.getContactStatus();
     }
 }
