@@ -34,7 +34,7 @@ public class MetroCard {
     public void cardTimer() {
         Calendar now = Calendar.getInstance();
         final int ctime = now.get(Calendar.MINUTE), csec = now.get(Calendar.SECOND);
-        final int ftime = ctime + 1;
+        final int ftime = ctime + 1; //change
 
         while(this.timeLeft > 0) {
             Calendar update = Calendar.getInstance();
