@@ -12,6 +12,7 @@ class Tester {
             mc.pay();
         }
         MetroCard mc1 = new MetroCard(10.0);
+        System.out.println("-----------------mc1 obj-----------------");
         mc1.addToBalance(13.5);
         mc1.getBalance();
     }
