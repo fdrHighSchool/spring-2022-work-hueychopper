@@ -36,11 +36,14 @@ public class MetroCard {
         final int ctime = now.get(Calendar.MINUTE), csec = now.get(Calendar.SECOND);
         final int ftime = ctime + this.timeLeft;
 
+        System.out.println(csec);
         while(this.timeLeft > 0) {
             Calendar update = Calendar.getInstance();
             if((ftime == update.get(Calendar.MINUTE)) && (csec == update.get(Calendar.SECOND))) {
                 this.timeLeft = 0;
                 System.out.println("one more swipe available");
+            } else {
+                System.out.print("minute : "+(ftime - update.get(Calendar.MINUTE))+"; seconds: "+(update.get(Calendar.SECOND))+"\r");
             }
         }
     }

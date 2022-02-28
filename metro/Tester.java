@@ -6,7 +6,7 @@ class Tester {
         MetroCard mc = new MetroCard();
         if(mc.getType() == "Special Access") { //this can also be placed in the constructor
             mc.pay();
-            // mc.cardTimer(); //this works in with real time. if this.timeLeft = 1, the program will
+            mc.cardTimer(); //this works in with real time. if this.timeLeft = 1, the program will
             //wait one minute to reallow metro card swipe;
         } else {
             mc.pay();
