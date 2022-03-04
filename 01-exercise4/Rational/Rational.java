@@ -67,5 +67,4 @@ public class Rational {//1
       nn = nn/cf;
       System.out.println(nn+"/"+nd);
     }
-
 }
