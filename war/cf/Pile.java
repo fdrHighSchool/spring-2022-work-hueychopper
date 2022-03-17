@@ -12,5 +12,9 @@ public class Pile {
         ArrayList<Card> shuffled = init.shuffle();
         player1 = shuffled.subList(0, 26);
         player2 = shuffled.subList(26, 52);
+
+        System.out.println(player1);
+        System.out.println("plyer2");
+        System.out.println(player2);
     }
 }
