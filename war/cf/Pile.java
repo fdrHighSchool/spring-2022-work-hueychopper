@@ -18,12 +18,14 @@ public class Pile {
         Card top = this.p1.get(0);
         Card top2 = this.p2.get(0);
 
+        // getValue(top);
+        // getValue(top2);
         if(getValue(top) > getValue(top2)) {
-            System.out.println("top: "+top+" > top2: "+top2);
+            System.out.println("top: "+top+" > top2: "+top2+" ("+getValue(top)+", "+getValue(top2)+")");
             this.p1.add(top2);
             this.p2.remove(top2);
         } else if(getValue(top2) > getValue(top)) {
-            System.out.println("top2: "+top2+" > top: "+top);
+            System.out.println("top2: "+top2+" > top: "+top+" ("+getValue(top2)+", "+getValue(top)+")");
             this.p2.add(top);
             this.p1.remove(top);
         } else if(getValue(top) == getValue(top2)) {
@@ -31,10 +33,12 @@ public class Pile {
             Card warTop2 = this.p2.get(1);
             System.out.println("war declared::: card1: "+top+", card2: "+top2);
             if(getValue(warTop) > getValue(warTop2)) {
+                System.out.println("top1: "+warTop+" > "+warTop2);
                 Collections.addAll(this.p1, this.p2.get(0), this.p2.get(1), this.p2.get(2), this.p2.get(3), this.p2.get(4));
                 for(int i = 0; i <= 4; i++) {this.p2.remove(i);}
             }   
             else {
+                System.out.println("top2: "+warTop2+" > "+warTop);
                 Collections.addAll(this.p2, this.p1.get(0), this.p1.get(1), this.p1.get(2), this.p1.get(3), this.p1.get(4));
                 for(int i = 0; i <= 4; i++) {this.p1.remove(i);}
             }
@@ -42,21 +46,22 @@ public class Pile {
     }
     public int getValue(Card currentCard) {
         int val;
-        String valdigit = currentCard.toString().replaceAll("\u001B\\[[;\\d]*m", "").substring(0,1);
+
+        String valdigit = currentCard.toString().replaceAll("\u001B\\[[;\\d]*m", "");
+        String allcase = valdigit.substring(0, valdigit.indexOf(" "));
         Pattern cardvals = Pattern.compile("\\d", Pattern.CASE_INSENSITIVE);
-        Matcher match = cardvals.matcher(valdigit);
+        Matcher match = cardvals.matcher(allcase);
         boolean isNDigit = match.find();
 
         if(isNDigit) {
-            val = Integer.parseInt(valdigit);
+            // System.out.println("digit: "+valdigit.substring(0, valdigit.indexOf(" ")));
+            val = Integer.parseInt(allcase);
         } else {
-            System.out.println(currentCard.toString());
-            String identifier = currentCard.toString().substring(0,currentCard.toString().indexOf(" "));
-            if(identifier.equals("jack")) {
+            if(allcase.equals("jack")) {
                 val = 11;
-            } else if(identifier.equals("queen")) {
+            } else if(allcase.equals("queen")) {
                 val = 12;
-            } else if(identifier.equals("king")) {
+            } else if(allcase.equals("king")) {
                 val = 13;
             } else {
                 val = 14;
