@@ -5,16 +5,13 @@ import java.lang.Math;
 
 public class Deck {
   private ArrayList<Card> deck;
-  // ArrayList<Card> shuffled_deck;
 
   public Deck() {
     this.deck = new ArrayList<Card>();
-    // this.shuffled_deck = new ArrayList<Card>();
 
     for(int suit = 0; suit <= 3; suit++) {
       for(int value = 2; value <= 14; value++) {
         this.deck.add(new Card(value, suit));
-        // this.shuffled_deck.add(new Card(value, suit));
       } // end inner for loop
     } // end outer for loop
 
@@ -37,8 +34,13 @@ public class Deck {
       this.deck.set(i, this.deck.get(random));
       this.deck.set(random, temp);
     }
+    // System.out.println(this.deck.size());
     return deck;
-    // System.out.println(this.shuffled_deck);
+    
+  }
+  public Card rmcard() {
+    // System.out.println(this.deck.size());
+    return this.deck.remove(0);
   }
 
 } // end class
