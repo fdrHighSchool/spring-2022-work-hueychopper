@@ -19,6 +19,7 @@ public class Driver {
 
     Pile one = new Pile(p1, p2);
     one.round();
+    one.display();
 
   }
 }

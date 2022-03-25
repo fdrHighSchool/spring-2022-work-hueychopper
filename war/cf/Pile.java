@@ -19,20 +19,25 @@ public class Pile {
         Card top2 = this.p2.get(0);
 
         if(getValue(top) > getValue(top2)) {
-            System.out.println("top > top2; switching...");
+            System.out.println("top: "+top+" > top2: "+top2);
             this.p1.add(top2);
             this.p2.remove(top2);
         } else if(getValue(top2) > getValue(top)) {
-            System.out.println("top2 > top; switching...");
+            System.out.println("top2: "+top2+" > top: "+top);
             this.p2.add(top);
             this.p1.remove(top);
         } else if(getValue(top) == getValue(top2)) {
             Card warTop = this.p1.get(1);
             Card warTop2 = this.p2.get(1);
-            if(getValue(warTop) > getValue(warTop2))
+            System.out.println("war declared::: card1: "+top+", card2: "+top2);
+            if(getValue(warTop) > getValue(warTop2)) {
                 Collections.addAll(this.p1, this.p2.get(0), this.p2.get(1), this.p2.get(2), this.p2.get(3), this.p2.get(4));
-            else
-                Collections.addAll(this.p2, this.p2.get(0), this.p1.get(1), this.p1.get(2), this.p1.get(3), this.p1.get(4));
+                for(int i = 0; i <= 4; i++) {this.p2.remove(i);}
+            }   
+            else {
+                Collections.addAll(this.p2, this.p1.get(0), this.p1.get(1), this.p1.get(2), this.p1.get(3), this.p1.get(4));
+                for(int i = 0; i <= 4; i++) {this.p1.remove(i);}
+            }
         }
     }
     public int getValue(Card currentCard) {
@@ -58,5 +63,13 @@ public class Pile {
             }
         }
         return val;
+    }
+    public void display() {
+        System.out.println(this.p1);
+        System.out.println(this.p1.size());
+        System.out.println();
+        System.out.println();
+        System.out.println(this.p2);
+        System.out.println(this.p2.size());
     }
 } 
